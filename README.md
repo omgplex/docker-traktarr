@@ -11,7 +11,7 @@
 
 - [Requirements](#requirements)
 - [Installation](#installation)
-	- [Docker](#1-base-install-docker)
+	- [Docker](#docker)
 - [App Configuration](#configuration)
 
 ---
