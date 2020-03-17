@@ -1,4 +1,4 @@
-# [eafxx/traktarr](https://hub.docker.com/repository/docker/eafxx/traktarr)
+# [eafxx/traktarr](https://hub.docker.com/r/eafxx/traktarr)
 
 - Multiarch Support: 
   * amd64
