@@ -12,7 +12,7 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 	- [Docker](#docker)
-- [App Configuration](#configuration)
+- [App Configuration](#2-app-configuration)
 
 ---
 
