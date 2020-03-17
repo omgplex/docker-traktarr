@@ -33,9 +33,9 @@
 
 | Tag      | Description                          | Build Status                                                                                                | 
 | ---------|--------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| latest | master/stable                 | ![Docker Build Master](https://github.com/elmerfdz/docker-bind/workflows/Docker%20Build%20Master/badge.svg)  | 
-| dev | development, pre-release      | ![Docker Build Dev](https://github.com/elmerfdz/docker-bind/workflows/Docker%20Build%20Dev/badge.svg)     |
-| exp | unstable, experimental        | ![Docker Build Exp](https://github.com/elmerfdz/docker-bind/workflows/Docker%20Build%20Exp/badge.svg)   | 
+| latest | master/stable                 | ![Docker Build Master](https://github.com/elmerfdz/docker-traktarr/workflows/Docker%20Build%20Master/badge.svg)  | 
+| dev | development, pre-release      | ![Docker Build Dev](https://github.com/elmerfdz/docker-traktarr/workflows/Docker%20Build%20Dev/badge.svg)     |
+| exp | unstable, experimental        | ![Docker Build Exp](https://github.com/elmerfdz/docker-traktarr/workflows/Docker%20Build%20Exp/badge.svg)   | 
 
 **Docker Run**
 
