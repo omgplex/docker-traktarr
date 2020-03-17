@@ -12,7 +12,7 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 	- [Docker](#docker)
-- [App Configuration](#2-app-configuration)
+- [App Configuration](#app-configuration)
 
 ---
 
@@ -114,6 +114,6 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as bel
     uid=1000(dockeruser) gid=1000(dockergroup) groups=1000(dockergroup)
 ```
 
-# 2. App Configuration
+# App Configuration
 
 Follow the readme on the project  repo: [Link](https://github.com/l3uddz/traktarr#2-create-a-trakt-application)
