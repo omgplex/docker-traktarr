@@ -77,6 +77,7 @@ OR
 2. Search for 'traktarr'
 3. Click on the Install button
 
+![](https://i.imgur.com/QXV2pTO.png)
 
 
 
