@@ -1,4 +1,4 @@
-name: Docker Build Master amd64
+name: Docker Build Dev armv7
 on:
   push:
     paths-ignore:
@@ -9,11 +9,9 @@ on:
       - '.github\workflows\dockerbuildbuild-dev-arm64.yml'
       - '.github\workflows\dockerbuildbuild-master-arm64.yml'
       - '.github\workflows\dockerbuildbuild-dev-armv7.yml'
-      - '.github\workflows\dockerbuildbuild-master-armv7.yml'    
+      - '.github\workflows\dockerbuildbuild-master-armv7.yml'  
     branches: 
-      - master
-  schedule:
-    - cron: '00 0 * * 6'
+      - dev
 jobs:
   buildx:
     runs-on: ubuntu-latest
@@ -37,11 +35,10 @@ jobs:
         version: latest
     - name: Available platforms
       run: echo ${{ steps.buildx.outputs.platforms }}
-    - name: Run Buildx
+    - name: Buildx Build & Push image
       run: |
         docker buildx build \
-        --platform linux/amd64 \
-        --tag eafxx/traktarr:latest \
-        --tag eafxx/traktarr:latest-${{ env.GITHUB_SHA_SHORT }} \
+        --platform linux/arm/v7 \
+        --tag eafxx/traktarr:armv7-dev \
         --push . \
         --file ./Dockerfile

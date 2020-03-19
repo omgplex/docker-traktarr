@@ -1,4 +1,4 @@
-name: Docker Build Master amd64
+name: Docker Build Master arm64
 on:
   push:
     paths-ignore:
@@ -40,8 +40,8 @@ jobs:
     - name: Run Buildx
       run: |
         docker buildx build \
-        --platform linux/amd64 \
-        --tag eafxx/traktarr:latest \
-        --tag eafxx/traktarr:latest-${{ env.GITHUB_SHA_SHORT }} \
+        --platform linux/arm64 \
+        --tag eafxx/traktarr:arm64 \
+        --tag eafxx/traktarr:arm64-${{ env.GITHUB_SHA_SHORT }} \
         --push . \
         --file ./Dockerfile
