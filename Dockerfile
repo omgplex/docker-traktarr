@@ -1,4 +1,4 @@
-FROM lsiobase/alpine.python:3.9
+FROM eafxx/alpine-python
 LABEL MAINTAINER="eafxx"
 
 ENV \
