@@ -1,8 +1,15 @@
-name: Docker Build Dev
+name: Docker Build Dev amd64
 on:
   push:
     paths-ignore:
-      - 'README.md'  
+      - 'README.md' 
+      - '.github\workflows\dockerbuild-dev.yml'
+      - '.github\workflows\dockerbuild-exp.yml'
+      - '.github\workflows\dockerbuild-master.yml'   
+      - '.github\workflows\dockerbuildbuild-dev-arm64.yml'
+      - '.github\workflows\dockerbuildbuild-master-arm64.yml'
+      - '.github\workflows\dockerbuildbuild-dev-armv7.yml'
+      - '.github\workflows\dockerbuildbuild-master-armv7.yml'  
     branches: 
       - dev
 jobs:
@@ -31,7 +38,7 @@ jobs:
     - name: Buildx Build & Push image
       run: |
         docker buildx build \
-        --platform linux/amd64,linux/arm64,linux/arm/v7 \
+        --platform linux/amd64 \
         --tag eafxx/traktarr:dev \
         --push . \
         --file ./Dockerfile
