@@ -1,6 +1,6 @@
 # [eafxx/traktarr](https://hub.docker.com/r/eafxx/traktarr)
 
-- Run commands configured via variables
+- Run app commands configured via variables
 - PUID/PGID support
 - Updates app on container restart (can disable)
 
