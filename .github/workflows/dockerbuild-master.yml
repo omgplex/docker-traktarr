@@ -1,15 +1,11 @@
-name: Docker Build Master amd64
+name: Docker Build Master
 on:
   push:
     paths-ignore:
       - 'README.md' 
       - '.github\workflows\dockerbuild-dev.yml'
       - '.github\workflows\dockerbuild-exp.yml'
-      - '.github\workflows\dockerbuild-master.yml'   
-      - '.github\workflows\dockerbuildbuild-dev-arm64.yml'
-      - '.github\workflows\dockerbuildbuild-master-arm64.yml'
-      - '.github\workflows\dockerbuildbuild-dev-armv7.yml'
-      - '.github\workflows\dockerbuildbuild-master-armv7.yml'    
+      - '.github\workflows\dockerbuild-master.yml'    
     branches: 
       - master
   schedule:
@@ -25,7 +21,7 @@ jobs:
         DOCKER_PWD: ${{ secrets.DOCKER_PWD }}
       run: |
          docker login -u $DOCKER_USER -p $DOCKER_PWD
-    - uses: rlespinasse/github-slug-action@master
+    - uses: rlespinasse/github-slug-action@v2.x
     - name: Print slug variables
       run: |
         echo ${{ env.GITHUB_REF_SLUG }}
@@ -37,7 +33,7 @@ jobs:
         version: latest
     - name: Available platforms
       run: echo ${{ steps.buildx.outputs.platforms }}
-    - name: Run Buildx
+    - name: Run Buildx amd64
       run: |
         docker buildx build \
         --platform linux/amd64 \
@@ -45,3 +41,19 @@ jobs:
         --tag eafxx/traktarr:latest-${{ env.GITHUB_SHA_SHORT }} \
         --push . \
         --file ./Dockerfile
+    - name: Run Buildx arm64
+      run: |
+        docker buildx build \
+        --platform linux/arm64 \
+        --tag eafxx/traktarr:arm64 \
+        --tag eafxx/traktarr:arm64-${{ env.GITHUB_SHA_SHORT }} \
+        --push . \
+        --file ./Dockerfile.arm64
+    - name: Run Buildx armv7
+      run: |
+        docker buildx build \
+        --platform linux/arm/v7 \
+        --tag eafxx/traktarr:armv7 \
+        --tag eafxx/traktarr:armv7-${{ env.GITHUB_SHA_SHORT }} \
+        --push . \
+        --file ./Dockerfile.armhf
