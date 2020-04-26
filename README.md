@@ -1,9 +1,6 @@
 # [eafxx/traktarr](https://hub.docker.com/r/eafxx/traktarr)
 
-- Multiarch Support: 
-  * amd64
-  * armv7, arm64 i.e. supports Raspberry Pi
-- Run commands configured via variables
+- Run app commands configured via variables
 - PUID/PGID support
 - Updates app on container restart (can disable)
 
