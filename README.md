@@ -2,6 +2,7 @@
 
 - Run app commands configured via variables
 - PUID/PGID support
+- Multiarch support
 - Updates app on container restart (can disable)
 
 ---
