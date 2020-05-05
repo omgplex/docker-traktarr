@@ -5,7 +5,6 @@ on:
       - 'README.md' 
       - '.github\workflows\dockerbuild-dev.yml'
       - '.github\workflows\dockerbuild-exp.yml'
-      - '.github\workflows\dockerbuild-master.yml'    
     branches: 
       - master
   schedule:
@@ -30,30 +29,15 @@ jobs:
       id: buildx
       uses: crazy-max/ghaction-docker-buildx@v1.0.5
       with:
-        version: latest
+        buildx-version: latest
+        qemu-version: latest
     - name: Available platforms
       run: echo ${{ steps.buildx.outputs.platforms }}
-    - name: Run Buildx amd64
+    - name: Buildx Multiarch Build & Push image
       run: |
         docker buildx build \
-        --platform linux/amd64 \
+        --platform linux/amd64,linux/arm64,linux/arm/v7 \
         --tag eafxx/traktarr:latest \
         --tag eafxx/traktarr:latest-${{ env.GITHUB_SHA_SHORT }} \
         --push . \
         --file ./Dockerfile
-    - name: Run Buildx arm64
-      run: |
-        docker buildx build \
-        --platform linux/arm64 \
-        --tag eafxx/traktarr:arm64 \
-        --tag eafxx/traktarr:arm64-${{ env.GITHUB_SHA_SHORT }} \
-        --push . \
-        --file ./Dockerfile.arm64
-    - name: Run Buildx armv7
-      run: |
-        docker buildx build \
-        --platform linux/arm/v7 \
-        --tag eafxx/traktarr:armv7 \
-        --tag eafxx/traktarr:armv7-${{ env.GITHUB_SHA_SHORT }} \
-        --push . \
-        --file ./Dockerfile.armhf
