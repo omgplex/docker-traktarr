@@ -1,11 +1,10 @@
-name: Docker Build Exp amd64
+name: Docker Build Exp
 on:
   push:
     paths-ignore:
       - 'README.md' 
+      - '.github\workflows\dockerbuild-master.yml'
       - '.github\workflows\dockerbuild-dev.yml'
-      - '.github\workflows\dockerbuild-exp.yml'
-      - '.github\workflows\dockerbuild-master.yml'  
     branches: 
       - exp
 jobs:
@@ -28,13 +27,14 @@ jobs:
       id: buildx
       uses: crazy-max/ghaction-docker-buildx@v1.0.5
       with:
-        version: latest
+        buildx-version: latest
+        qemu-version: latest
     - name: Available platforms
       run: echo ${{ steps.buildx.outputs.platforms }}
-    - name: Buildx Build & Push image
+    - name: Buildx Multiarch Build & Push image
       run: |
         docker buildx build \
-        --platform linux/amd64 \
+        --platform linux/amd64,linux/arm64,linux/arm/v7 \
         --tag eafxx/traktarr:exp \
         --push . \
         --file ./Dockerfile
