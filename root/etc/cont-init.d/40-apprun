@@ -9,7 +9,7 @@ echo '[ Checking App Branch]'
   echo
 
 echo '[ Checking for Auto-Update Pref ]'
-if [ "$SKIPUPDATE" == "yes" ] || [ "$NOSEARCH" == "Yes" ] || [ "$NOSEARCH" == "YES" ]
+if [ "$SKIPUPDATE" == "yes" ] || [ "$SKIPUPDATE" == "Yes" ] || [ "$SKIPUPDATE" == "YES" ]
 then
   echo '==> SKIP AUTO-UPDATE: yes'
   echo
