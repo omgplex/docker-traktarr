@@ -9,6 +9,8 @@ ENV \
 
 # Install packages
 RUN \
+    chmod +x /etc/s6/init/init-stage2 && \
+    chmod +x /docker-mods && \
     apk add --no-cache curl py3-setuptools tzdata && \
     if [ ! -e /usr/bin/python ]; then ln -sf python3 /usr/bin/python ; fi && \
     pip3 install --no-cache-dir --upgrade pip setuptools && \
