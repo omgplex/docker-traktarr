@@ -21,7 +21,7 @@ RUN \
     pip3 install --no-cache-dir --upgrade pip setuptools && \
     if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi
   RUN \
-    /etc/cont-init.d/30-install
+    bash /etc/cont-init.d/30-install
 
 # Change directory
 WORKDIR /${APP_DIR}
