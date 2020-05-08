@@ -1,4 +1,4 @@
-# hadolint ignore=DL3007 
+# hadolint ignore=DL3006,DL3007 
 FROM eafxx/alpine-python
 LABEL MAINTAINER="eafxx"
 
@@ -10,7 +10,7 @@ ENV \
 
 # Install packages
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
-# hadolint ignore=DL3018,DL3003
+# hadolint ignore=DL3018,DL3003,DL3013
 RUN \
     chmod +x /etc/s6/init/init-stage2 && \
     chmod +x /docker-mods && \
