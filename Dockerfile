@@ -12,7 +12,7 @@ ENV \
 COPY root/ /
 
 # Install packages
-SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 # hadolint ignore=DL3018,DL3003,DL3013
 RUN \
     chmod +x /etc/s6/init/init-stage2 && \
