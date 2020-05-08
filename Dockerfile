@@ -1,3 +1,4 @@
+# hadolint ignore=DL3007 
 FROM eafxx/alpine-python
 LABEL MAINTAINER="eafxx"
 
@@ -5,9 +6,11 @@ ENV \
   APP_DIR=traktarr \
   TRAKTARR_CONFIG=/config/config.json \
   TRAKTARR_LOGFILE=/config/traktarr.log \
-  TZ=
+  TZ=""
 
 # Install packages
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+# hadolint ignore=DL3018,DL3003
 RUN \
     chmod +x /etc/s6/init/init-stage2 && \
     chmod +x /docker-mods && \
