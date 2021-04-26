@@ -115,4 +115,4 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as bel
 
 # App Configuration
 
-Follow the readme on the project  repo: [Link](https://github.com/l3uddz/traktarr#2-create-a-trakt-application)
+Follow the readme on the project  repo: [Link](https://github.com/omgplex/traktarr#2-create-a-trakt-application)
